@@ -6,6 +6,12 @@ A 3D, interactive developer portfolio built with **React**, **TypeScript**, **Th
 
 ---
 
+## Demo
+
+<!-- PASTE_VIDEO_LINK_HERE -->
+
+---
+
 ## About
 
 I'm a B.Tech Data Science student and full-stack developer, working across machine learning and modern web development. This site showcases my projects, technical skills, and experience — including an interactive 3D hero section and a physics-driven interface.
@@ -77,7 +83,6 @@ This project was built on top of an open-source 3D portfolio template ([red1-for
 **Design changes**
 - Removed the alternating zig-zag project card layout in favor of a consistent read order for a horizontally-scrolling section
 - Removed unused features from the original template (AI chatbot, playable chess engine) to keep the site focused and fast-loading
-
 
 ---
 
