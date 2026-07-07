@@ -8,7 +8,8 @@ A 3D, interactive developer portfolio built with **React**, **TypeScript**, **Th
 
 ## Demo
 
-<!-- PASTE_VIDEO_LINK_HERE -->
+<img width="800" height="407" alt="personal-portfolio" src="https://github.com/user-attachments/assets/139ebae9-5050-460b-aa53-fc668832595e" />
+
 
 ---
 
