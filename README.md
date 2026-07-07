@@ -2,7 +2,7 @@
 
 A 3D, interactive developer portfolio built with **React**, **TypeScript**, **Three.js**, and **GSAP**, showcasing my skills, experience, projects, and achievements.
 
-> > Live: https://personal-portfolio-steel-seven-14.vercel.app
+> Live: https://personal-portfolio-steel-seven-14.vercel.app
 
 ---
 
