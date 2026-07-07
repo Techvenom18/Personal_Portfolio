@@ -61,6 +61,16 @@ export const config = {
             liveUrl: "https://learning-dashboard-seven-eosin.vercel.app/",
             repoUrl: "https://github.com/Techvenom18/learning-dashboard",
             description: "A futuristic, highly animated education platform focused on hardware-accelerated animations, zero layout shifts, and a buttery-smooth experience powered by efficient, server-rendered data. Built with Next.js 15's App Router and Supabase for real-time progress tracking, with Framer Motion driving fluid, GPU-accelerated UI transitions."
+        },
+        {
+            id: 4,
+            title: "Personal Portfolio",
+            category: "Full Stack",
+            technologies: "React, TypeScript, Three.js, GSAP, Vite",
+            image: "/images/personal-portfolio.gif",
+            liveUrl: "https://personal-portfolio-steel-seven-14.vercel.app",
+            repoUrl: "https://github.com/Techvenom18/Personal_Portfolio",
+            description: "This portfolio itself — an interactive, physics-driven 3D site with a scroll-animated career timeline, a fully responsive tech stack pyramid, and a WhatsApp-style profile preview. Built and debugged across desktop, tablet, and phone breakpoints."
         }
 
     ],
