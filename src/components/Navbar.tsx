@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { HiMenu, HiX } from "react-icons/hi";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
 import Lenis from "lenis";
@@ -10,6 +11,7 @@ export let lenis: Lenis | null = null;
 
 const Navbar = () => {
   const [showProfile, setShowProfile] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     // Initialize Lenis smooth scroll
@@ -91,19 +93,30 @@ const Navbar = () => {
         >
           sumitrathore45528@gmail.com
         </a>
-        <ul>
+            <button
+              className="navbar-hamburger"
+              onClick={() => setMenuOpen((open) => !open)}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              data-cursor="disable"
+            >
+              {menuOpen ? <HiX /> : <HiMenu />}
+            </button>
+
+            <ul className={menuOpen ? "nav-menu-open" : ""}>
+        
+          
           <li>
-            <a data-href="#about" href="#about">
+            <a data-href="#about" href="#about" onClick={() => setMenuOpen(false)}>
               <HoverLinks text="ABOUT" />
             </a>
           </li>
           <li>
-            <a data-href="#work" href="#work">
+            <a data-href="#work" href="#work" onClick={() => setMenuOpen(false)}>
               <HoverLinks text="WORK" />
             </a>
           </li>
           <li>
-            <a data-href="#contact" href="#contact">
+            <a data-href="#contact" href="#contact" onClick={() => setMenuOpen(false)}>
               <HoverLinks text="CONTACT" />
             </a>
           </li>
