@@ -13,7 +13,7 @@ export const config = {
     },
     about: {
         title: "About Me",
-        description: "I'm a student of B.Tech Computer Science with Specialization in Data Science[CSDS] at Delhi Skill and Entrepreneurship University, CGPA-9.21 currently in my 4th semester. I work across machine learning and full-stack web development projects from preprocessing and evaluating ML models to building responsive React interfaces. I recently completed a Machine Learning internship at Edunet Foundation, building a water quality prediction model, and I'm a core team member of Google Developer Group (GDG) on Campus. Two-time hackathon finalist, and I've led both teams as captain."
+        description: "I'm a student of B.Tech Computer Science with Specialization in Data Science[CSDS] at Delhi Skill and Entrepreneurship University, CGPA-9.39 currently in my 4th semester. I work across machine learning and full-stack web development projects from preprocessing and evaluating ML models to building responsive React interfaces. I recently completed a Machine Learning internship at Edunet Foundation, building a water quality prediction model, and I'm a core team member of Google Developer Group (GDG) on Campus. Two-time hackathon finalist, and I've led both teams as captain."
     },
     experiences: [
         {
@@ -44,18 +44,18 @@ export const config = {
         },
         {
             id: 2,
-            title: "Nifty 50 vs. HCL Technologies",
-            category: "Data Analytics",
-            technologies: "Python, pandas, NumPy, matplotlib, yfinance",
-            image: "/images/nifty-hcl-analysis.gif", // TODO -> completed: add a real screenshot to public/images/
-            liveUrl: "", // not deployed yet — badge shows but stays inactive
-            repoUrl: "https://github.com/Techvenom18/Project-Stock_insights",
-            description: "Compared the performance of the Nifty 50 index against HCL Technologies stock from 2011 to 2022. Sourced historical financial data with yfinance, cleaned and analyzed it with pandas/NumPy, and visualized trends and relative performance with matplotlib."
+            title: "Resume Ranking System",
+            category: "Full Stack Developer",
+            technologies: "Next.js, TypeScript, Tailwind CSS, PostgreSQL, Prisma ORM, Auth.js, Vite",
+            image: "/images/resumerank_demo_hq.gif",
+            liveUrl: "https://resumerank-two.vercel.app/",
+            repoUrl: "https://github.com/Techvenom18/resumerank",
+            description: "Screens and ranks job applicants against a job description, with a transparent score breakdown — built for recruiters who are tired of manually skimming hundreds of resumes."
         },
         {
             id: 3,
             title: "Learning Dashboard",
-            category: "Full Stack",
+            category: "Full Stack Developer",
             technologies: "Next.js 15, Supabase, Tailwind CSS, Framer Motion, Vercel",
             image: "/images/learning-dashboard.gif",
             liveUrl: "https://learning-dashboard-seven-eosin.vercel.app/",
@@ -65,12 +65,42 @@ export const config = {
         {
             id: 4,
             title: "Personal Portfolio",
-            category: "Full Stack",
+            category: "Full Stack Developer",
             technologies: "React, TypeScript, Three.js, GSAP, Vite",
             image: "/images/personal-portfolio.gif",
             liveUrl: "https://personal-portfolio-steel-seven-14.vercel.app",
             repoUrl: "https://github.com/Techvenom18/Personal_Portfolio",
             description: "This portfolio itself — an interactive, physics-driven 3D site with a scroll-animated career timeline, a fully responsive tech stack pyramid, and a WhatsApp-style profile preview. Built and debugged across desktop, tablet, and phone breakpoints."
+        },
+        {
+            id: 5,
+            title: "Stock Insights Model",
+            category: "Data Analytics",
+            technologies: "Python, pandas, NumPy, matplotlib, yfinance",
+            image: "/images/nifty-hcl-analysis.gif", // TODO -> completed: add a real screenshot to public/images/
+            liveUrl: "", // not deployed yet — badge shows but stays inactive
+            repoUrl: "https://github.com/Techvenom18/Project-Stock_insights",
+            description: "Compared the performance of the Nifty 50 index against HCL Technologies stock from 2011 to 2022. Sourced historical financial data with yfinance, cleaned and analyzed it with pandas/NumPy, and visualized trends and relative performance with matplotlib."
+        },
+        {
+            id: 6,
+            title: "Elementum Landing Webpage",
+            category: "Front-End Developer",
+            technologies: "HTML, CSS, JavaScript, React.js, Vite, React Router",
+            image: "/images/Elementum_demo.gif",
+            liveUrl: "https://elementum-webpage-ruby.vercel.app/",
+            repoUrl: "https://github.com/Techvenom18/Elementum_Webpage",
+            description: "A responsive, animated React conversion of a Figma landing page design for Elementum, a fictional strategy & design studio. Built as a front-end internship assignment, then extended with routing, an inline content-expand pattern, and a light/dark theme toggle."
+        },
+        {
+            id: 7,
+            title: "Page Pulse Application",
+            category: "Full Stack Developer",
+            technologies: "HTML, CSS, JavaScript, Ract.js, Rapid API, Render",
+            image: "/images/page_pulse_demo.gif",
+            liveUrl: "https://page-pulse-ptoo.onrender.com/",
+            repoUrl: "https://github.com/Techvenom18/page-pulse",
+            description: "A small tool that audits any URL and returns HTTP status, response time, title, meta description, H1 count, missing alt-text count, and approximate word count."
         }
 
     ],
