@@ -42,6 +42,7 @@
   margin-left: 200px;
   position: relative;
   display: flex;
+  gap: 2px;
 }
 
 .what-content {
@@ -49,50 +50,119 @@
   height: 33%;
   min-height: 50%;
   transition: 0.5s;
-  /* border: 0.5px dashed rgba(255, 255, 255, 0.3); */
   position: relative;
   padding: 50px;
   box-sizing: border-box;
+  border-radius: 6px;
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015) 60%);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  overflow: hidden;
+  opacity: 0;
+  animation: whatCardIn 0.6s ease forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes whatCardIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.what-heading-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.what-heading-row .what-icon-badge {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+/* Distinct role identity color (warm amber vs. the site's existing purple accent
+   -- a classic complementary pairing), used for the border, icon badge and glow */
+.what-card-data {
+  --roleColor: #9db4f5;
+  --roleBorder: rgba(157, 180, 245, 0.35);
+  --roleBorderHover: rgba(157, 180, 245, 0.7);
+}
+
+.what-card-code {
+  --roleColor: var(--accentColor);
+  --roleBorder: rgba(194, 164, 255, 0.35);
+  --roleBorderHover: rgba(194, 164, 255, 0.7);
+}
+
+
+.what-content {
+  border: 1px solid var(--roleBorder);
+  transition: 0.5s, border-color 0.3s ease;
 }
 
 .what-noTouch:hover,
 .what-content-active {
-  min-height: 67%;
-  padding: 40px 50px;
+  border-color: var(--roleBorderHover);
+}
+
+.what-noTouch:hover,
+.what-content-active {
+  min-height: 80%;
+  padding: 30px 50px;
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02) 60%);
+  box-shadow: 0 20px 60px -20px var(--roleColor);
+}
+
+.what-card-data.what-noTouch:hover,
+.what-card-data.what-content-active {
+  box-shadow: 0 18px 55px -22px #8ab4f8, 0 22px 65px -20px #c9a7ff;
 }
 
 .what-noTouch:hover~.what-content,
 .what-box-in:hover .what-noTouch:not(:hover),
 .what-content.what-sibling {
-  min-height: 33%;
-  padding: 10px 50px;
+  min-height: 20%;
+  padding: 8px 50px;
 }
 
 .what-content h3 {
-  font-size: 35px;
-  letter-spacing: 1px;
+  font-size: 32px;
+  letter-spacing: 0.5px;
   margin: 0;
+  font-weight: 700;
 }
 
 .what-content p {
-  font-size: 14px;
-  line-height: 18px;
-  font-weight: 200;
-  letter-spacing: 0.7px;
+  font-size: 13px;
+  line-height: 19px;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 8px 0 0;
 }
 
 .what-content h4 {
-  font-weight: 300;
-  letter-spacing: 1px;
-  margin: 0px;
-  font-size: 14px;
-  opacity: 0.3;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  margin: 6px 0 0;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: var(--roleColor);
+  opacity: 0.9;
 }
 
 .what-content-in {
   opacity: 0;
   animation: whatFlicker 0.5s 1 forwards;
   animation-delay: 1s;
+  position: relative;
+  z-index: 2;
 }
 
 @keyframes whatFlicker {
@@ -112,53 +182,26 @@
   }
 }
 
-.what-content::before,
-.what-corner::before,
-.what-content::after,
-.what-corner::after {
-  content: "";
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  border: 4px solid #fff;
-  opacity: 0;
-  animation: whatCorners 0.2s 1 forwards;
-  animation-delay: 0.5s;
+/* ---------- Role icon badge ---------- */
+.what-icon-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--roleColor);
+  box-shadow: 0 0 24px -6px var(--roleColor);
 }
 
-@keyframes whatCorners {
-  100% {
-    opacity: 1;
-  }
+.what-icon-badge-data {
+  box-shadow: 0 0 20px -5px #8ab4f8, 0 0 20px -5px #c9a7ff;
 }
 
-.what-content::before {
-  top: -2px;
-  left: -2px;
-  border-right: none;
-  border-bottom: none;
-}
-
-.what-corner::before {
-  top: -2px;
-  right: -2px;
-  border-left: none;
-  border-bottom: none;
-}
-
-.what-content::after {
-  bottom: -2px;
-  left: -2px;
-  border-top: none;
-  border-right: none;
-}
-
-.what-corner::after {
-  bottom: -2px;
-  right: -2px;
-  border-left: none;
-  border-top: none;
-}
 
 .what-arrow {
   position: absolute;
@@ -167,6 +210,16 @@
   width: 25px;
   height: 25px;
   border: 1px solid #fff;
+  border-radius: 50%;
+  transition: 0.3s;
+  z-index: 4;
+  cursor: pointer;
+}
+
+.what-noTouch:hover .what-arrow,
+.what-content-active .what-arrow {
+  border-color: var(--roleColor);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .what-arrow::before {
@@ -187,47 +240,6 @@
   transform: translate(-50%, -20%) rotate(-225deg);
 }
 
-.what-border1 {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 100%;
-  transition: 0.5s;
-  max-width: 0%;
-  overflow: hidden;
-  opacity: 0.8;
-  animation: whatBorders 1.2s 1 forwards;
-}
-
-.what-border1 svg {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 450px;
-}
-
-.what-border2 {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  left: 0;
-  transform: translateY(-50%);
-  height: 100%;
-  max-height: 0%;
-  overflow: hidden;
-  transition: 0.5s;
-  opacity: 0.8;
-  animation: whatBorders 1.2s 1 forwards;
-}
-
-.what-border2 svg {
-  height: 500px;
-  top: 50%;
-  transform: translateY(-50%);
-  position: absolute;
-}
 
 .what-content-in {
   height: 100%;
@@ -235,39 +247,39 @@
 }
 
 .what-content-in h5 {
-  font-weight: 300;
-  opacity: 0.5;
-  font-size: 12px;
-  letter-spacing: 1px;
+  font-weight: 600;
+  opacity: 0.4;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   font-family: "Geist", sans-serif;
-  margin-bottom: 5px;
+  margin: 14px 0 8px;
 }
 
-@keyframes whatBorders {
-  80% {
-    opacity: 0.8;
-  }
-
-  100% {
-    max-height: 100%;
-    max-width: 100%;
-    opacity: 0.2;
-  }
-}
 
 .what-content-flex {
   display: flex;
-  gap: 5px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
 .what-tags {
-  font-size: 13px;
-  font-weight: 400;
-  padding: 2px 7px;
-  background-color: rgba(255, 255, 255, 0.15);
-  border: 1px solid #ffffff50;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 14px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 30px;
+  color: rgba(255, 255, 255, 0.85);
+  transition: 0.25s ease;
+}
+
+.what-noTouch:hover .what-tags:hover,
+.what-content-active .what-tags:hover {
+  border-color: var(--roleColor);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transform: translateY(-1px);
 }
 
 @media only screen and (max-width: 1600px) {
@@ -286,7 +298,7 @@
   }
 
   .what-content h3 {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   .what-content {
@@ -311,6 +323,13 @@
 
   .what-tags {
     font-size: 12px;
+  }
+
+  .what-icon-badge {
+    width: 38px;
+    height: 38px;
+    font-size: 17px;
+    margin-bottom: 12px;
   }
 }
 
@@ -431,6 +450,13 @@
 
   .what-content h3 {
     font-size: 25px;
+  }
+
+  .what-icon-badge {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+    margin-bottom: 10px;
   }
 }
 
