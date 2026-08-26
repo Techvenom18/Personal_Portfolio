@@ -59,7 +59,10 @@ const WhatIDo = () => {
               </div>
               <div
                 className="what-arrow"
-                onClick={() => handleClick(containerRef.current[0]!)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleClick(containerRef.current[0]!);
+                }}
               ></div>
             </div>
           </div>
@@ -84,7 +87,10 @@ const WhatIDo = () => {
               </div>
               <div
                 className="what-arrow"
-                onClick={() => handleClick(containerRef.current[1]!)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleClick(containerRef.current[1]!);
+                }}
               ></div>
             </div>
           </div>

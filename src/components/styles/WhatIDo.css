@@ -86,8 +86,8 @@
   flex-shrink: 0;
 }
 
-/* Distinct role identity color (warm amber vs. the site's existing purple accent
-   -- a classic complementary pairing), used for the border, icon badge and glow */
+/* Distinct role identity color (light blue/purple blend vs. the site's existing
+   purple accent), used for the border, icon badge and glow */
 .what-card-data {
   --roleColor: #9db4f5;
   --roleBorder: rgba(157, 180, 245, 0.35);
@@ -100,35 +100,59 @@
   --roleBorderHover: rgba(194, 164, 255, 0.7);
 }
 
-
 .what-content {
   border: 1px solid var(--roleBorder);
   transition: 0.5s, border-color 0.3s ease;
 }
 
-.what-noTouch:hover,
+/*
+  IMPORTANT: expand/collapse state is driven by TWO independent mechanisms:
+  - .what-content-active -- toggled by JS (arrow click / tap), works reliably
+    on every device since it's a real, controllable state.
+  - .what-noTouch:hover -- real mouse hover, scoped to genuine pointer devices
+    only via `(hover: hover) and (pointer: fine)`. Touch screens (phones AND
+    touchscreen laptops) apply a "sticky hover" state after a tap that doesn't
+    release until tapping elsewhere -- if :hover were allowed to apply there,
+    it would keep the card visually expanded even after JS removes the active
+    class, making the collapse arrow look broken. Scoping :hover this way
+    means touch devices rely purely on the click state, which toggles cleanly.
+*/
+
 .what-content-active {
   border-color: var(--roleBorderHover);
-}
-
-.what-noTouch:hover,
-.what-content-active {
   min-height: 80%;
   padding: 30px 50px;
   background: linear-gradient(155deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02) 60%);
   box-shadow: 0 20px 60px -20px var(--roleColor);
 }
 
-.what-card-data.what-noTouch:hover,
 .what-card-data.what-content-active {
   box-shadow: 0 18px 55px -22px #8ab4f8, 0 22px 65px -20px #c9a7ff;
 }
 
-.what-noTouch:hover~.what-content,
-.what-box-in:hover .what-noTouch:not(:hover),
 .what-content.what-sibling {
   min-height: 20%;
   padding: 8px 50px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .what-noTouch:hover {
+    border-color: var(--roleBorderHover);
+    min-height: 80%;
+    padding: 30px 50px;
+    background: linear-gradient(155deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02) 60%);
+    box-shadow: 0 20px 60px -20px var(--roleColor);
+  }
+
+  .what-card-data.what-noTouch:hover {
+    box-shadow: 0 18px 55px -22px #8ab4f8, 0 22px 65px -20px #c9a7ff;
+  }
+
+  .what-noTouch:hover~.what-content,
+  .what-box-in:hover .what-noTouch:not(:hover) {
+    min-height: 20%;
+    padding: 8px 50px;
+  }
 }
 
 .what-content h3 {
@@ -202,7 +226,6 @@
   box-shadow: 0 0 20px -5px #8ab4f8, 0 0 20px -5px #c9a7ff;
 }
 
-
 .what-arrow {
   position: absolute;
   bottom: 20px;
@@ -216,10 +239,16 @@
   cursor: pointer;
 }
 
-.what-noTouch:hover .what-arrow,
 .what-content-active .what-arrow {
   border-color: var(--roleColor);
   background: rgba(255, 255, 255, 0.05);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .what-noTouch:hover .what-arrow {
+    border-color: var(--roleColor);
+    background: rgba(255, 255, 255, 0.05);
+  }
 }
 
 .what-arrow::before {
@@ -235,11 +264,15 @@
   height: 10px;
 }
 
-.what-noTouch:hover .what-arrow::before,
 .what-content-active .what-arrow::before {
   transform: translate(-50%, -20%) rotate(-225deg);
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .what-noTouch:hover .what-arrow::before {
+    transform: translate(-50%, -20%) rotate(-225deg);
+  }
+}
 
 .what-content-in {
   height: 100%;
@@ -255,7 +288,6 @@
   font-family: "Geist", sans-serif;
   margin: 14px 0 8px;
 }
-
 
 .what-content-flex {
   display: flex;
@@ -274,12 +306,20 @@
   transition: 0.25s ease;
 }
 
-.what-noTouch:hover .what-tags:hover,
 .what-content-active .what-tags:hover {
   border-color: var(--roleColor);
   background-color: rgba(255, 255, 255, 0.1);
   color: #fff;
   transform: translateY(-1px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .what-noTouch:hover .what-tags:hover {
+    border-color: var(--roleColor);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    transform: translateY(-1px);
+  }
 }
 
 @media only screen and (max-width: 1600px) {
@@ -310,15 +350,23 @@
     font-size: 13px;
   }
 
-  .what-noTouch:hover,
   .what-content-active {
     padding: 20px 30px;
   }
 
-  .what-noTouch:hover~.what-content,
-  .what-box-in:hover .what-noTouch:not(:hover),
   .what-content.what-sibling {
     padding: 10px 30px;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .what-noTouch:hover {
+      padding: 20px 30px;
+    }
+
+    .what-noTouch:hover~.what-content,
+    .what-box-in:hover .what-noTouch:not(:hover) {
+      padding: 10px 30px;
+    }
   }
 
   .what-tags {
@@ -364,17 +412,27 @@
     font-size: 14px;
   }
 
-  .what-noTouch:hover,
   .what-content-active {
-    min-height: 67%;
-    padding: 50px;
+    min-height: 82%;
+    padding: 30px 50px;
   }
 
-  .what-noTouch:hover~.what-content,
-  .what-box-in:hover .what-noTouch:not(:hover),
   .what-content.what-sibling {
-    min-height: 33%;
-    padding: 10px 50px;
+    min-height: 15%;
+    padding: 8px 50px;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .what-noTouch:hover {
+      min-height: 82%;
+      padding: 30px 50px;
+    }
+
+    .what-noTouch:hover~.what-content,
+    .what-box-in:hover .what-noTouch:not(:hover) {
+      min-height: 15%;
+      padding: 8px 50px;
+    }
   }
 }
 
@@ -409,7 +467,7 @@
 
   .what-box-in {
     margin-left: 0px;
-    height: 450px;
+    height: 640px;
   }
 
   .what-content h5,
@@ -418,11 +476,16 @@
     transition: 0.3s;
   }
 
-  .what-noTouch:hover h5,
   .what-content-active h5,
-  .what-noTouch:hover .what-content-flex,
   .what-content-active .what-content-flex {
     opacity: 1;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .what-noTouch:hover h5,
+    .what-noTouch:hover .what-content-flex {
+      opacity: 1;
+    }
   }
 
   .what-content {
@@ -433,19 +496,35 @@
     font-size: 11px;
   }
 
-  .what-noTouch:hover,
   .what-content-active {
-    padding: 10px 30px;
+    min-height: 92%;
+    padding: 16px 30px;
+  }
+
+  .what-content.what-sibling {
+    min-height: 6%;
+    padding: 5px 30px;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .what-noTouch:hover {
+      min-height: 92%;
+      padding: 16px 30px;
+    }
+
+    .what-noTouch:hover~.what-content,
+    .what-box-in:hover .what-noTouch:not(:hover) {
+      padding: 5px 30px;
+    }
+  }
+
+  .what-content-in {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .what-tags {
     font-size: 11px;
-  }
-
-  .what-noTouch:hover~.what-content,
-  .what-box-in:hover .what-noTouch:not(:hover),
-  .what-content.what-sibling {
-    padding: 5px 30px;
   }
 
   .what-content h3 {
