@@ -21,6 +21,21 @@ const MyWorks = () => {
             <div className="myworks-card-number">0{index + 1}</div>
             <div className="myworks-card-image">
               <img src={project.image} alt={project.title} />
+              {project.liveUrl ? (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="myworks-badge myworks-badge-live"
+                  data-cursor="disable"
+                >
+                  Live Project
+                </a>
+              ) : (
+                <span className="myworks-badge myworks-badge-live myworks-badge-inactive">
+                  Live Project
+                </span>
+              )}
             </div>
             <div className="myworks-card-info">
               <h3>{project.title}</h3>

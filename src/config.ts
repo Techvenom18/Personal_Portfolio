@@ -74,6 +74,16 @@ export const config = {
         },
         {
             id: 5,
+            title: "Pizza Delivery Application",
+            category: "Full Stack Developer",
+            technologies: "React.js, Node.js, Express.js, MongoDB, Vercel, Render",
+            image: "/images/fornorosso-pizza.gif",
+            liveUrl: "https://fornorosso-pizza-delivery-mern-app.vercel.app/",
+            repoUrl: "https://github.com/Techvenom18/Fornorosso-pizza-delivery-mernApp",
+            description: "A full-stack pizza delivery web app featuring user authentication, order placement and a dedicated admin panel to manage menu items and monitor orders. Built with a responsive React.js frontend connected to a Node.js/Express.js REST API backend, using MongoDB for data storage."
+        },
+        {
+            id: 6,
             title: "Stock Insights Model",
             category: "Data Analytics",
             technologies: "Python, pandas, NumPy, matplotlib, yfinance",
@@ -83,7 +93,7 @@ export const config = {
             description: "Compared the performance of the Nifty 50 index against HCL Technologies stock from 2011 to 2022. Sourced historical financial data with yfinance, cleaned and analyzed it with pandas/NumPy, and visualized trends and relative performance with matplotlib."
         },
         {
-            id: 6,
+            id: 7,
             title: "Elementum Landing Webpage",
             category: "Front-End Developer",
             technologies: "HTML, CSS, JavaScript, React.js, Vite, React Router",
@@ -93,7 +103,7 @@ export const config = {
             description: "A responsive, animated React conversion of a Figma landing page design for Elementum, a fictional strategy & design studio. Built as a front-end internship assignment, then extended with routing, an inline content-expand pattern, and a light/dark theme toggle."
         },
         {
-            id: 7,
+            id: 8,
             title: "Page Pulse Application",
             category: "Full Stack Developer",
             technologies: "HTML, CSS, JavaScript, Ract.js, Rapid API, Render",
